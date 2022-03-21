@@ -1,0 +1,91 @@
+show full processlist;
+
+mysql -u root -p interview-mgmt-test < /home/premendra/git/db-files/30-Dec-2019/interview-mgmt-test.sql
+mysql -u root -p interview_mgmt < /home/premendra/git/db-files/30-Dec-2019/interview_mgmt.sql
+mysql -u root -p interview_mgmt_testing < /home/premendra/git/db-files/30-Dec-2019/interview_mgmt_testing.sql
+mysql -u root -p jasper-report < /home/premendra/git/db-files/30-Dec-2019/jasper-report.sql
+mysql -u root -p jtrac-mysql < /home/premendra/git/db-files/30-Dec-2019/jtrac-mysql.sql
+mysql -u root -p jtractest < /home/premendra/git/db-files/30-Dec-2019/jtractest.sql
+mysql -u root -p relational-db-test < /home/premendra/git/db-files/30-Dec-2019/relational-db-test.sql
+mysql -u root -p service-mgmt < /home/premendra/git/db-files/30-Dec-2019/service-mgmt.sql
+mysql -u root -p tasksdb < /home/premendra/git/db-files/30-Dec-2019/tasksdb.sql
+mysql -u root -p topic-mgmt < /home/premendra/git/db-files/30-Dec-2019/topic-mgmt.sql
+mysql -u root -p tt < /home/premendra/git/db-files/30-Dec-2019/tt.sql
+mysql -u root -p tutorialdb < /home/premendra/git/db-files/30-Dec-2019/tutorialdb.sql
+mysql -u root -p word-meaning-test < /home/premendra/git/db-files/30-Dec-2019/word-meaning-test.sql
+mysql -u root -p word-meaning < /home/premendra/git/db-files/30-Dec-2019/word-meaning.sql
+
+
+
+interview_mgmt_sep_27_2019.sql
+interview_mgmt_test_sep_27_2019.sql
+khajana.xml
+notes_app.sql
+topic-mgmt-sep-27-2019.sql
+topicmgmt27jul18.sql
+-- 
+mysql -u root -p interview_mgmt_sep_27_2019 < C:\Users\premendra.kumar\Desktop\DUMP\db-files\db-bckp-27-sep-2019\interview_mgmt_sep_27_2019.sql
+
+-- 
+mysql -u root -p interview_mgmt_test_sep_27_2019 < C:\Users\premendra.kumar\Desktop\DUMP\db-files\db-bckp-27-sep-2019\interview_mgmt_test_sep_27_2019.sql
+
+-- 
+mysql -u root -p topic-mgmt-sep-27-2019 < C:\Users\premendra.kumar\Desktop\DUMP\db-files\db-bckp-27-sep-2019\topic-mgmt-sep-27-2019.sql
+
+-- 
+mysql -u root -p topicmgmt27jul18 < C:\Users\premendra.kumar\Desktop\DUMP\db-files\db-bckp-27-sep-2019\topicmgmt27jul18.sql
+
+mysql -u root -p notes_app < C:\Users\premendra.kumar\Desktop\DUMP\db-files\db-bckp-27-sep-2019\notes_app.sql
+
+
+===========================================================
+MariaDB [(none)]> SHOW DATABASES;
++---------------------------------+
+| Database                        |
++---------------------------------+
+| event-logging-db                |
+| interview-mgmt-test             |
+| interview_mgmt                  |
+| interview_mgmt_sep_27_2019      |
+| interview_mgmt_test_sep_27_2019 |
+| interview_mgmt_testing          |
+| jasper-report                   |
+| jtrac-mysql                     |
+| jtractest   
+| notes_app                   |
+| relational-db-test              |
+| service-mgmt                    |
+| tasksdb                         |
+| test                            |
+| topic-mgmt                      |
+| topic-mgmt-sep-27-2019          |
+| topicmgmt27jul18                |
+| tt                              |
+| tutorialdb                      |
+| word-meaning                    |
+| word-meaning-test               |
++---------------------------------+
+25 rows in set (0.00 sec)
+
+
+/opt/lampp/bin/mysql -u root -p event-logging-db < /home/premendra/git/db-files/30-Dec-2019/event-logging-db.sql
+/opt/lampp/bin/mysql -u root -p interview-mgmt-test < /home/premendra/git/db-files/30-Dec-2019/interview-mgmt-test.sql
+/opt/lampp/bin/mysql -u root -p interview_mgmt < /home/premendra/git/db-files/30-Dec-2019/interview_mgmt.sql
+/opt/lampp/bin/mysql -u root -p interview_mgmt_sep_27_2019 < /home/premendra/git/db-files/30-Dec-2019/interview_mgmt_sep_27_2019.sql
+/opt/lampp/bin/mysql -u root -p interview_mgmt_test_sep_27_2019 < /home/premendra/git/db-files/30-Dec-2019/interview_mgmt_test_sep_27_2019.sql
+/opt/lampp/bin/mysql -u root -p interview_mgmt_testing < /home/premendra/git/db-files/30-Dec-2019/interview_mgmt_testing.sql
+/opt/lampp/bin/mysql -u root -p jasper-report < /home/premendra/git/db-files/30-Dec-2019/jasper-report.sql
+/opt/lampp/bin/mysql -u root -p jtrac-mysql < /home/premendra/git/db-files/30-Dec-2019/jtrac-mysql.sql
+/opt/lampp/bin/mysql -u root -p jtractest < /home/premendra/git/db-files/30-Dec-2019/jtractest.sql
+/opt/lampp/bin/mysql -u root -p notes_app < /home/premendra/git/db-files/30-Dec-2019/notes_app.sql
+/opt/lampp/bin/mysql -u root -p relational-db-test < /home/premendra/git/db-files/30-Dec-2019/relational-db-test.sql
+/opt/lampp/bin/mysql -u root -p service-mgmt < /home/premendra/git/db-files/30-Dec-2019/service-mgmt.sql
+/opt/lampp/bin/mysql -u root -p tasksdb < /home/premendra/git/db-files/30-Dec-2019/tasksdb.sql
+/opt/lampp/bin/mysql -u root -p test < /home/premendra/git/db-files/30-Dec-2019/test.sql
+/opt/lampp/bin/mysql -u root -p topic-mgmt < /home/premendra/git/db-files/30-Dec-2019/topic-mgmt.sql
+/opt/lampp/bin/mysql -u root -p topic-mgmt-sep-27-2019 < /home/premendra/git/db-files/30-Dec-2019/topic-mgmt-sep-27-2019.sql
+/opt/lampp/bin/mysql -u root -p topicmgmt27jul18 < /home/premendra/git/db-files/30-Dec-2019/topicmgmt27jul18.sql
+/opt/lampp/bin/mysql -u root -p tt < /home/premendra/git/db-files/30-Dec-2019/tt.sql
+/opt/lampp/bin/mysql -u root -p tutorialdb < /home/premendra/git/db-files/30-Dec-2019/tutorialdb.sql
+/opt/lampp/bin/mysql -u root -p word-meaning < /home/premendra/git/db-files/30-Dec-2019/word-meaning.sql
+/opt/lampp/bin/mysql -u root -p word-meaning-test < /home/premendra/git/db-files/30-Dec-2019/word-meaning-test.sql

@@ -1,0 +1,16 @@
+08-09-2020 23:45:43.346 [scheduling-1] DEBUG c.e.T.TaskSchedulerApplication.run - * remote origin
+08-09-2020 23:45:43.353 [scheduling-1] DEBUG c.e.T.TaskSchedulerApplication.run -   Fetch URL: https://github.com/sameer05515/my-pages.git
+08-09-2020 23:45:43.353 [scheduling-1] DEBUG c.e.T.TaskSchedulerApplication.run -   Push  URL: https://github.com/sameer05515/my-pages.git
+08-09-2020 23:45:43.353 [scheduling-1] DEBUG c.e.T.TaskSchedulerApplication.run -   HEAD branch: master
+08-09-2020 23:45:43.354 [scheduling-1] DEBUG c.e.T.TaskSchedulerApplication.run -   Remote branch:
+08-09-2020 23:45:43.354 [scheduling-1] DEBUG c.e.T.TaskSchedulerApplication.run -     master tracked
+08-09-2020 23:45:43.354 [scheduling-1] DEBUG c.e.T.TaskSchedulerApplication.run -   Local branch configured for 'git pull':
+08-09-2020 23:45:43.356 [scheduling-1] DEBUG c.e.T.TaskSchedulerApplication.run -     master merges with remote master
+08-09-2020 23:45:43.357 [scheduling-1] DEBUG c.e.T.TaskSchedulerApplication.run -   Local ref configured for 'git push':
+08-09-2020 23:45:43.357 [scheduling-1] DEBUG c.e.T.TaskSchedulerApplication.run -     master pushes to master (up to date)
+08-09-2020 23:45:43.403 [scheduling-1] DEBUG c.e.T.TaskSchedulerApplication.run - commit 420d230c5596e2182aedf2b12741f6e85d0f8bc1
+08-09-2020 23:45:43.403 [scheduling-1] DEBUG c.e.T.TaskSchedulerApplication.run - Author: Sameer.05515 <sameer.geeee@gmail.com>
+08-09-2020 23:45:43.404 [scheduling-1] DEBUG c.e.T.TaskSchedulerApplication.run - Date:   Tue Sep 8 22:34:30 2020 +0530
+08-09-2020 23:45:43.404 [scheduling-1] DEBUG c.e.T.TaskSchedulerApplication.run - 
+08-09-2020 23:45:43.404 [scheduling-1] DEBUG c.e.T.TaskSchedulerApplication.run -     committing at Tue 09/08/2020 22:34:00.06
+08-09-2020 23:45:43.417 [scheduling-1] DEBUG c.e.T.TaskSchedulerApplication.run - hello Premendra Kumar

@@ -1,0 +1,17 @@
+Mysql
+apache-ant-1.10.8-bin
+apache-maven-3.6.3-bin
+apache-tomcat-8.5.56-windows-x86
+eclipse-jee-helios-SR1-win32
+eclipse-jee-photon-R-win32
+Git
+Java
+jtrac-db-conf
+Microsoft VS Code
+nodejs
+Notepad++
+solr-8.5.2
+xampp
+
+
+Citrix
