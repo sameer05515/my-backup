@@ -1,0 +1,153 @@
+
+
+
+===================================
+
+npm install angular-froala-wysiwyg --save
+
+ng new angular-proj-module-shopping-recipe-app
+
+=====================================
+
+mysqldump --user=root --password --databases word-meaning > D:\Prem\db-backup\word-meaning.sql
+
+
+======================================
+
+UPDATE mysql.user SET Password=PASSWORD('root') WHERE User='root';
+
+select * from mysql.user
+
+show full processlist;
+
+========================================
+
+
+
+==========================================
+
+git clone -b mysql-db-branch --single-branch https://github.com/sameer05515/task-mgmt-service.git task-mgmt-service-mysql-db-branch
+
+git clone -b j-trac-code-r1373-trunk --single-branch https://github.com/sameer05515/jtrac.git j-trac-code-r1373-trunk
+
+==========================================
+
+create table t_task (id varchar(255) not null, activity_type varchar(255), box varchar(255), end_date varchar(255), environment varchar(255), frequency varchar(255), highest_point varchar(255), next_occurance varchar(255), performed_by varchar(255), points_earned_today varchar(255), rating integer not null, remarks varchar(255), routine_schedule_description varchar(255), schedule_date varchar(255), sequence varchar(255), status varchar(255), task_description varchar(255), task_priority_group varchar(255), title varchar(255), what_if_not_doing varchar(255), primary key (id))
+
+===========================================
+
+DROP TABLE IF EXISTS `tasksdb`.`t_task`;
+CREATE TABLE  `tasksdb`.`t_task` (
+  `id` varchar(255) NOT NULL,
+  `activity_type` text,
+  `box` text,
+  `end_date` datetime DEFAULT NULL,
+  `environment` text,
+  `frequency` text,
+  `highest_point` int(11) DEFAULT NULL,
+  `next_occurance` datetime DEFAULT NULL,
+  `performed_by` text,
+  `points_earned_today` int(11) DEFAULT NULL,
+  `rating` int(11) DEFAULT NULL,
+  `remarks` text,
+  `routine_schedule_description` text,
+  `schedule_date` datetime DEFAULT NULL,
+  `sequence` text,
+  `status` text,
+  `task_description` text,
+  `task_priority_group` text,
+  `title` text,
+  `what_if_not_doing` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+===================================
+
+// Intercepting HTTP calls with AngularJS.
+angular.module('MyApp', [])
+.config(function ($provide, $httpProvider) {
+  
+  // Intercept http calls.
+  $provide.factory('MyHttpInterceptor', function ($q) {
+    return {
+      // On request success
+      request: function (config) {
+        // console.log(config); // Contains the data about the request before it is sent.
+
+        // Return the config or wrap it in a promise if blank.
+        return config || $q.when(config);
+      },
+
+      // On request failure
+      requestError: function (rejection) {
+        // console.log(rejection); // Contains the data about the error on the request.
+        
+        // Return the promise rejection.
+        return $q.reject(rejection);
+      },
+
+      // On response success
+      response: function (response) {
+        // console.log(response); // Contains the data from the response.
+        
+        // Return the response or promise.
+        return response || $q.when(response);
+      },
+
+      // On response failture
+      responseError: function (rejection) {
+        // console.log(rejection); // Contains the data about the error.
+        
+        // Return the promise rejection.
+        return $q.reject(rejection);
+      }
+    };
+  });
+
+  // Add the interceptor to the $httpProvider.
+  $httpProvider.interceptors.push('LoggingHttpInterceptor');
+
+});
+
+======================================
+
+pushd not found in linux ubuntu
+
+run below command
+sudo dpkg-reconfigure dash
+
+click "no" in prompt
+
+================================
+show all databases in ubuntu lampp
+
+/opt/lampp/bin/mysql -u root -p
+
+show all databases;
+
+=================================
+linux node js install
+
+
+
+# NodeJS
+export NODEJS_HOME=/home/premendra/Downloads/node-v14.15.0-linux-x64/bin
+export PATH=$NODEJS_HOME:$PATH
+==================
+https://medium.com/@rabbi.cse.sust.bd/install-nodejs-via-binary-archive-on-ubuntu-18-04-63118473d9e9
+
+=====================
+
+in event-group-mgmt
+ list view from "question-report"
+ Button controls, Search control, Add/Edit template from "word-mgmt"
+ 
+
+===============================
+
+mvn clean install -Dmaven.test.skip=true
+
+=============================
+
+
+

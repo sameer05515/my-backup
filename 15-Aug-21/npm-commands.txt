@@ -1,0 +1,6 @@
+npm install -g @angular/cli@latest
+
+ng new angular-proj-module-one
+
+
+npm install --save bootstrap@3
