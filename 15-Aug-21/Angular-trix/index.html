@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="trixDemo">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/trix/0.9.2/trix.css">
+  <link rel="stylesheet" href="style.css" />
+  
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
+  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/trix/0.9.2/trix.js"></script>
+  <script src="angular-trix.js"></script> 
+  <script src="democtrl.js"></script>
+  
+</head>
+
+<body ng-controller="trixDemoCtrl">
+  <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+        </div>
+        <h4> Outside div in sync with ng-model</h4>
+        {{trix}}
+        <trix-editor ng-model-options="{ updateOn: 'blur' }" spellcheck="false" class="trix-content" ng-model="trix" angular-trix placeholder="Write something.."></trix-editor>
+        <div class="modal-body" id="modal-body">
+          <h4> Inside div not in sync with ng-model</h4>
+          {{trix}}
+          <trix-editor ng-model-options="{ updateOn: 'blur' }" spellcheck="false" class="trix-content" ng-model="trix" angular-trix placeholder="Write something.."></trix-editor>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+   <button type="button" class="btn btn-default" ng-click="open()">Open modal!</button>
+</body>
+
+</html>

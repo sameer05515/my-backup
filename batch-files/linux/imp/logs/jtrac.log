@@ -1,0 +1,22 @@
+2020-12-27 22:00:53,480 [localhost-startStop-1] INFO [info.jtrac.config.JtracConfigurer] - found 'jtrac-init.properties' on classpath, processing...
+2020-12-27 22:00:53,480 [localhost-startStop-1] INFO [info.jtrac.config.JtracConfigurer] - 'jtrac.home' property initialized from 'jtrac-init.properties' as '/home/premendra/Custom-Installations/jtrac-mysql/'
+2020-12-27 22:00:53,481 [localhost-startStop-1] INFO [info.jtrac.config.JtracConfigurer] - locales available configured are 'en,es_MX,ru,zh_TW,pl,pt_BR,fr,de,el,es,es_AR,it,zh_CN,nl,ja'
+2020-12-27 22:00:53,503 [localhost-startStop-1] INFO [info.jtrac.config.JtracConfigurer] - directory already exists: '/home/premendra/Custom-Installations/jtrac-mysql'
+2020-12-27 22:00:53,510 [localhost-startStop-1] INFO [info.jtrac.config.JtracConfigurer] - directory already exists: '/home/premendra/Custom-Installations/jtrac-mysql/attachments'
+2020-12-27 22:00:53,510 [localhost-startStop-1] INFO [info.jtrac.config.JtracConfigurer] - directory already exists: '/home/premendra/Custom-Installations/jtrac-mysql/indexes'
+2020-12-27 22:00:53,511 [localhost-startStop-1] INFO [info.jtrac.config.JtracConfigurer] - 'jtrac.properties' file exists: '/home/premendra/Custom-Installations/jtrac-mysql/jtrac.properties'
+2020-12-27 22:00:53,511 [localhost-startStop-1] INFO [info.jtrac.config.JtracConfigurer] - found 'jtrac-version.properties' on classpath, processing...
+2020-12-27 22:00:53,511 [localhost-startStop-1] INFO [info.jtrac.config.JtracConfigurer] - jtrac.version = '2.1.0'
+2020-12-27 22:00:53,511 [localhost-startStop-1] INFO [info.jtrac.config.JtracConfigurer] - jtrac.timestamp = '200803022120'
+2020-12-27 22:00:53,512 [localhost-startStop-1] INFO [info.jtrac.config.JtracConfigurer] - Loading properties file from file [/home/premendra/Custom-Installations/jtrac-mysql/jtrac.properties]
+2020-12-27 22:00:53,624 [localhost-startStop-1] INFO [info.jtrac.config.DataSourceFactoryBean] - Not using embedded HSQLDB or JNDI datasource, switching on Apache DBCP data source connection pooling
+2020-12-27 22:00:55,355 [localhost-startStop-1] INFO [info.jtrac.hibernate.HibernateJtracDao] - database schema exists, normal startup
+2020-12-27 22:00:55,437 [localhost-startStop-1] INFO [info.jtrac.JtracImpl] - available locales configured {en=en - English, es_MX=es_MX - Spanish (Mexico), ru=ru - Russian, zh_TW=zh_TW - Chinese (Taiwan), pl=pl - Polish, pt_BR=pt_BR - Portuguese (Brazil), fr=fr - French, de=de - German, el=el - Greek, es=es - Spanish, es_AR=es_AR - Spanish (Argentina), it=it - Italian, zh_CN=zh_CN - Chinese (China), nl=nl - Dutch, ja=ja - Japanese}
+2020-12-27 22:00:55,458 [localhost-startStop-1] WARN [info.jtrac.mail.MailSender] - 'mail.server.host' config is null, mail sender not initialized
+2020-12-27 22:00:55,459 [localhost-startStop-1] WARN [info.jtrac.JtracImpl] - invalid default locale configured = 'null', using en
+2020-12-27 22:00:55,459 [localhost-startStop-1] INFO [info.jtrac.JtracImpl] - default locale set to 'en'
+2020-12-27 22:00:55,459 [localhost-startStop-1] WARN [info.jtrac.JtracImpl] - invalid attachment max size 'null', using 5
+2020-12-27 22:00:55,459 [localhost-startStop-1] INFO [info.jtrac.JtracImpl] - attachment max size set to 5 MB
+2020-12-27 22:00:55,459 [localhost-startStop-1] WARN [info.jtrac.JtracImpl] - invalid session timeout 'null', using 30
+2020-12-27 22:00:55,459 [localhost-startStop-1] INFO [info.jtrac.JtracImpl] - session timeout set to 30 minutes
+2020-12-27 22:00:55,736 [localhost-startStop-1] INFO [info.jtrac.wicket.JtracApplication] - casProxyTicketValidator not found in application context, CAS single-sign-on is not being used

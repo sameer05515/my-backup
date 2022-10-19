@@ -1,0 +1,33 @@
+solution
+https://stackoverflow.com/questions/1619662/how-can-i-get-the-latest-jre-jdk-as-a-zip-file-rather-than-exe-or-msi-installe
+
+https://vladmihalcea.com/tutorials/git/windows-git-ssh-authentication-to-github/
+
+https://stackoverflow.com/questions/4072260/how-to-change-java-version-used-by-tomcat
+
+https://medium.com/@github.gkarthiks/how-to-install-nodejs-and-npm-in-non-admin-access-windows-machines-102fd461b54c
+
+https://stackoverflow.com/questions/42045494/running-starting-mysql-without-installation-on-windows
+
+https://stackoverflow.com/questions/42045494/running-starting-mysql-without-installation-on-windows
+
+https://mariadb.com/kb/en/installing-mariadb-windows-zip-packages/
+
+https://github.com/webyog/sqlyog-community/wiki/Downloads
+
+https://codingsight.com/10-best-mysql-gui-tools/
+
+https://community.teamviewer.com/t5/Knowledge-Base-EN/Getting-Started-with-TeamViewer-Portable/ta-p/4799
+
+https://anydesk.en.softonic.com/download?ex=CORE-117.1
+
+
+=======================
+
+Installing MariaDB Windows ZIP Packages
+Getting started with ZIP packages on Windows is very straightforward - this distribution includes pre-built database files that can be used right after unpacking the ZIP.
+
+You can run mysqld.exe from the command prompt like this:
+
+  cd <directory-where-zip-was-unpacked>
+  bin\mysqld --console

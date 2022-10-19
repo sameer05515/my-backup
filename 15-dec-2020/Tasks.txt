@@ -1,0 +1,4 @@
+Tasks
+	- Organize 
+	- Get all numbers used to be called by V and its frequency and call-duration
+	- 

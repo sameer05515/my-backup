@@ -1,0 +1,224 @@
+SELECT `id`, `label`, `description`, `created_on`, `updated_on`, `enabled` FROM `t_label` WHERE 1
+
+SELECT `id`, `action`, `action_date`, `label`, `description`, `enabled` FROM `t_label_history` WHERE 1
+
+CREATE TRIGGER after_label_insert_log 
+after INSERT ON t_label 
+FOR EACH row 
+  INSERT INTO t_label_history 
+  SET action = 'CREATE',
+		label_id=NEW.id,
+      label = NEW.label, 
+      description = NEW.description,
+		enabled = NEW.enabled,
+      action_date = Now(); 
+	  
+CREATE TRIGGER after_label_update_log
+    AFTER UPDATE ON t_label
+    FOR EACH ROW 
+ INSERT INTO t_label_history
+ SET action = 'UPDATE',
+     label_id = OLD.id,
+     label = OLD.label, 
+      description = OLD.description,
+		enabled = OLD.enabled,
+     action_date = NOW();
+	 
+SELECT `id`, `title`, `detail`, `event_date`, `created_on`, `updated_on`, `enabled` FROM `t_event` WHERE 1
+SELECT `id`, `event_id`, `title`, `detail`, `event_date`, `enabled`, `action_date` FROM `t_event_history` WHERE 1
+
+CREATE TRIGGER after_t_event_insert_log AFTER INSERT ON
+    t_event FOR EACH ROW
+INSERT INTO t_event_history
+SET ACTION
+    = 'CREATE',
+    event_id = NEW.id,
+    title = NEW.title,
+    detail = NEW.detail,
+    event_date = NEW.event_date,
+    enabled = NEW.enabled,
+    action_date = NOW();
+	  
+CREATE TRIGGER after_t_event_update_log
+    AFTER UPDATE ON t_event
+    FOR EACH ROW 
+ INSERT INTO t_event_history
+ SET action = 'UPDATE',
+     event_id = OLD.id,
+     title = OLD.title, 
+      detail = OLD.detail,
+	  event_date=OLD.event_date,
+		enabled = OLD.enabled,
+     action_date = NOW();
+	 
+
+SELECT `id`, `event_id`, `label_id`, `remarks`, `created_on`, `updated_on`, `deleted` FROM `t_event_label_relation` WHERE 1
+SELECT `id`, `event_id`, `label_id`, `remarks`, `deleted`, `action_date`, `action` FROM `t_event_label_relation_history` WHERE 1
+
+CREATE TRIGGER after_t_event_label_relation_insert_log AFTER INSERT ON
+    t_event_label_relation FOR EACH ROW
+INSERT INTO t_event_label_relation_history
+SET ACTION
+    = 'CREATE',
+    event_id = NEW.event_id,
+	label_id=NEW.label_id
+    remarks = NEW.remarks,
+    deleted = NEW.deleted,
+    action_date = NOW();
+	  
+CREATE TRIGGER after_t_event_label_relation_update_log
+    AFTER UPDATE ON t_event_label_relation
+    FOR EACH ROW 
+ INSERT INTO t_event_label_relation_history
+ SET action = 'UPDATE',
+     event_id = OLD.event_id,
+	label_id=OLD.label_id
+    remarks = OLD.remarks,
+    deleted = OLD.deleted,
+     action_date = NOW();
+
+ 
+ALTER TABLE `t_event_label_relation` ADD UNIQUE `unique_event_label`(`event_id`, `label_id`);
+
+ALTER TABLE
+    t_event_label_relation ADD CONSTRAINT FK_t_event_label_relation_event_id FOREIGN KEY(event_id) REFERENCES t_event(id);
+
+
+ALTER TABLE t_event_label_relation
+ADD CONSTRAINT FK_t_event_label_relation_label_id
+FOREIGN KEY (label_id) REFERENCES t_label(id);
+
+FOREIGN KEY (label_id) REFERENCES t_label(id);
+
+ALTER TABLE t_event_label_relation
+DROP FOREIGN KEY FK_t_event_label_relation_label_id;
+ALTER TABLE t_event_label_relation
+DROP FOREIGN KEY FK_t_event_label_relation_event_id;
+
+--=============================
+
+INSERT INTO `t_label`(`id`, `label`, `description`, `created_on`, `updated_on`, `enabled`) 
+VALUES ([value-1],[value-2],[value-3],[value-4],[value-5],[value-6])
+
+INSERT INTO `t_event_label_relation`(`id`, `event_id`, `label_id`, `remarks`, `created_on`, `updated_on`, `deleted`) VALUES ([value-1],[value-2],[value-3],[value-4],[value-5],[value-6],[value-7])
+
+INSERT INTO `t_event`(`id`, `title`, `detail`, `event_date`, `created_on`, `updated_on`, `enabled`) VALUES ([value-1],[value-2],[value-3],[value-4],[value-5],[value-6],[value-7])
+
+--===================================
+
+
+DELIMITER $$
+
+-- USE `db` $$
+
+DROP PROCEDURE IF EXISTS `GenerateUniqueValue`$$
+
+CREATE PROCEDURE `GenerateUniqueValue`(IN count INT(11),IN tableName VARCHAR(255),IN columnName VARCHAR(255)) 
+BEGIN
+    DECLARE uniqueValue VARCHAR(50) DEFAULT "";
+    WHILE LENGTH(uniqueValue) = 0 DO
+        
+		SET @newUniqueValueQuery=CONCAT('SELECT LEFT(UUID(), ',count,') INTO @newUniqueValue');
+		PREPARE stmt1 FROM  @newUniqueValueQuery;
+        EXECUTE stmt1;
+        DEALLOCATE PREPARE stmt1;
+        SET @rcount = -1;
+        SET @query=CONCAT('SELECT COUNT(*) INTO @rcount FROM  ',tableName,' WHERE ',columnName,'  like ''',@newUniqueValue,'''');
+		
+        PREPARE stmt FROM  @query;
+        EXECUTE stmt;
+        DEALLOCATE PREPARE stmt;
+    IF @rcount = 0 THEN
+            SET uniqueValue = @newUniqueValue ;
+        END IF ;
+    END WHILE ;
+    SELECT uniqueValue;
+    END$$
+
+DELIMITER ;
+
+--=======================================
+
+DELIMITER $$
+
+CREATE FUNCTION GetUniqueValue(
+	appender VARCHAR(15)
+) 
+RETURNS VARCHAR(50)
+DETERMINISTIC
+BEGIN
+    DECLARE
+        uniqueValue VARCHAR(50) DEFAULT "" ; 
+        set uniqueValue=concat(appender,DATE_FORMAT(CURRENT_TIMESTAMP(), '%d%m%Y%H%i%s'),LEFT(UUID(), 8));
+    
+	RETURN(uniqueValue) ;
+END$$
+DELIMITER ;
+
+--========================
+
+CREATE TRIGGER bef_ins_t_event
+BEFORE INSERT ON t_event
+FOR EACH ROW
+SET new.id = GetUniqueValue('Event-');
+
+CREATE TRIGGER bef_ins_t_event_history
+BEFORE INSERT ON t_event_history
+FOR EACH ROW
+SET new.id = GetUniqueValue('EventHist-');
+
+CREATE TRIGGER bef_ins_t_event_label_relation
+BEFORE INSERT ON t_event_label_relation
+FOR EACH ROW
+SET new.id = GetUniqueValue('EventLabelRel-');
+
+CREATE TRIGGER bef_ins_t_event_label_relation_history
+BEFORE INSERT ON t_event_label_relation_history
+FOR EACH ROW
+SET new.id = GetUniqueValue('EventLabelRelHist-');
+
+CREATE TRIGGER bef_ins_t_label
+BEFORE INSERT ON t_label
+FOR EACH ROW
+SET new.id = GetUniqueValue('Label-');
+
+CREATE TRIGGER bef_ins_t_label_history
+BEFORE INSERT ON t_label_history
+FOR EACH ROW
+SET new.id = GetUniqueValue('LabelHist-');
+
+--==================================
+
+SELECT id, label, description, created_on, updated_on, enabled FROM t_label
+
+UPDATE t_label label=?,description=?,updated_on=current_timestamp(),enabled=? WHERE id=?
+
+--=
+
+POST
+http://localhost:3000/event-logging/label/
+{"label":"DAILY-BIHAR-EVENTS","description":"Daily Bihar news stories, updates"}
+
+--====
+PUT
+http://localhost:3000/event-logging/label/Label-151020200036245ae628ac
+{
+    "id": "Label-151020200036245ae628ac",
+    "label": "DAILY-WORLD-EVENTS",
+    "description": "Daily world news stories, updates",
+    "created_on": "2020-10-14T19:06:24.000Z",
+    "updated_on": "2020-10-14T19:06:24.000Z",
+    "enabled": 1
+}
+--=================
+POST
+
+
+--===========================
+SELECT id, title, detail, event_date, created_on, updated_on, enabled FROM t_event
+INSERT INTO t_event_label_relation(event_id, label_id, remarks, deleted) VALUES
+
+UPDATE t_event_label_relation SET remarks=?,updated_on=current_timestamp(),deleted=? 
+WHERE event_id=? and label_id=?
+
+SELECT id, event_id, label_id, remarks, created_on, updated_on, deleted FROM t_event_label_relation

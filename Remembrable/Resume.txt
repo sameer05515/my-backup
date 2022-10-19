@@ -1,0 +1,14 @@
+Senior Software engineer , Indiabulls security Ltd (formerly Indiabulls ventures ltd)
+Sep 2019 to Present
+Current major responsibility for Development in “ShubhWeb” application. Technologies used are Java/J2EE, Spring Boot,Spring Batch,Spring REST, Hibernate, Oracle 12g, ReactJS, BootStrap.
+Major Role and Responsibilities
+1. Developed backend API using j2EE technologies
+2. Team lead responsibilities
+
+
+Notis API , KRA, SFTP projects. These are Inhouse applications.
+Added code for new requirements.
+Fixed bugs identified by support team
+Migrated code from SVN to GITLab Server (Hosted in company premises) , 
+Worked with the vendor and project management team on a code change and new fix in upcoming Release. This resulted in increased efficiency in batch processing with no errors or transmissions missed and thus reduced the number of incidents.
+Did Jenkins configuration for continuous deployment
