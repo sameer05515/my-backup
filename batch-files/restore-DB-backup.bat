@@ -1,5 +1,5 @@
 @echo off
-set DB_DIR=E:\GIT\my-backup\31-June-2020
+set DB_DIR=C:\Prem\GIT\my-backup\31-June-2020
 call mysql -u root -p bce_shopping_cart < %DB_DIR%\bce_shopping_cart.sql
 call mysql -u root -p coding_ex_db < %DB_DIR%\coding_ex_db.sql
 call mysql -u root -p event_logging_db < %DB_DIR%\event_logging_db.sql
