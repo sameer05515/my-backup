@@ -1,0 +1,1 @@
+{"_id":{"$oid":"651af4fc5b61472d6f603289"},"id":"f7a2d118-6aa0-4dd6-a626-6a7315e59697","activityName":"Meditation","activityDescription":"lllllllllllll","recurrence":"OneTime","shouldContinue":"yes","startDate":{"$date":"2023-10-02T00:00:00Z"},"endDate":{"$date":"2023-10-03T00:00:00Z"},"__v":0}

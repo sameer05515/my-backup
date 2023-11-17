@@ -1,0 +1,1 @@
+{"_id":{"$oid":"64b6d3bc5d71a029fd955243"},"name":"tttt","description":"kkkk","price":110.0,"_class":"com.p.mongo.model.Product"}

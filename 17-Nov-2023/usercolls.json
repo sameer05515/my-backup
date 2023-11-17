@@ -1,0 +1,2 @@
+{"_id":{"$oid":"65255d1ca5b2aa940cf9ff84"},"username":"premendra.kumar","password":"$2b$10$NrVZ7O/VvTxmg9KaDn.L1OPaqfGqzmfIMDEZUBeuToRslKQiiaqXa","__v":0,"role":"user","email":"premendra.bce05515@gmail.com","name":"Premendra Kumar","mobileNumber":"8010645624"}
+{"_id":{"$oid":"652587a839ed3390cc9ab3cc"},"username":"premendra.bce05515","password":"$2b$10$BwDIZwoY2lhZHPrpb59tsOEDErZzRChRvCQ9pPM/az1RyROz6LOCO","__v":0,"role":"user","email":"sameer.geeee@gmail.com","mobileNumber":"8010645624","name":"Premendra Kumar"}
