@@ -1,0 +1,16 @@
+[
+    {
+      "name": "Chat renderer1",
+      "purpose": "To store and show all chats with ChatGPT",
+      "batchFileName": "chat-renderer.bat",
+      "absoluteLocation": "D:\\GIT\\my-backup\\CMD123\\10-May-2024\\chat-renderer.bat",
+      "id": "1_aBcDeFgHiJ"
+    },
+    {
+      "name": "next-ts-basics",
+      "purpose": "Learing next.js + TS",
+      "batchFileName": "next-ts-basics.bat",
+      "absoluteLocation": "D:\\GIT\\my-backup\\CMD123\\10-May-2024\next-ts-basics.bat",
+      "id": "2_aBcDeFgHiJ"
+    }    
+  ]
