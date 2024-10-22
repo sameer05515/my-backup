@@ -1,5 +1,5 @@
 @echo off
-set outputFolder=C:\Prem\GIT\my-backup\17-Nov-2023\json
+set outputFolder=D:\GIT\my-backup\17-Nov-2023\json
 set sourceDb=mongodb_test
 
 mongoexport --uri=mongodb://localhost:27017/%sourceDb% --collection=activities --out=%outputFolder%\activities.json
