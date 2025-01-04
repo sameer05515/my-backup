@@ -1,8 +1,0 @@
-source 'https://rubygems.org'
-
-gem 'jekyll', '~> 4.3.0'
-gem 'jekyll-sass-converter', '~> 2.0'
-gem 'sassc', '~> 2.4'
-gem 'jekyll-feed', '~> 0.15'
-gem "minima", "~> 2.5"
-gem 'webrick', '~> 1.7'
