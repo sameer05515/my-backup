@@ -1,0 +1,10 @@
+---
+layout: default
+---
+
+<h1>Categories</h1>
+<ul>
+  {% for category in site.categories %}
+    <li><a href="{{ category | first | url }}">{{ category | first }}</a></li>
+  {% endfor %}
+</ul>

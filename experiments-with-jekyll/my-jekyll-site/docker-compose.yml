@@ -3,10 +3,10 @@ version: '3.8'
 services:
   jekyll_site:
     build:
-      context: .
+      context: .  # Set context to the root directory
     ports:
-      - "4000:4000"
+      - "4000:4000"  # Expose port 4000
     volumes:
-      - ./jekyll:/srv/jekyll
-      - ./content/assets:/srv/jekyll/content/assets
-    command: jekyll serve --host 0.0.0.0 --trace
+      - .:/srv/jekyll  # Sync the jekyll folder
+      # - ./content:/srv/jekyll/content  # Sync the content folder
+    command: jekyll serve --host 0.0.0.0 --trace  # Start Jekyll server
