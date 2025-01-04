@@ -1,0 +1,12 @@
+{"_id":{"$oid":"66ea7f008d5baf3f7cd22b10"},"content":"Learn Java 8","author":"Java8","createdAt":{"$date":"2024-09-18T07:19:28.391Z"},"comments":[],"__v":0}
+{"_id":{"$oid":"66ead7eab1f5febba769639e"},"content":"Learn JavaScript","author":"JavaScript","createdAt":{"$date":"2024-09-18T13:38:50.831Z"},"comments":[],"__v":0}
+{"_id":{"$oid":"66ead986b1f5febba76963a2"},"content":"Learn TypeScript","author":"TypeScript","createdAt":{"$date":"2024-09-18T13:45:42.381Z"},"comments":[],"__v":0}
+{"_id":{"$oid":"66ead9fab1f5febba76963a6"},"content":"Learn Spring Boot","author":"Spring Boot","createdAt":{"$date":"2024-09-18T13:47:38.154Z"},"comments":[],"__v":0}
+{"_id":{"$oid":"66eae3919fafa00bc3bac40c"},"content":"Learn Microservices","author":"Microservices","createdAt":{"$date":"2024-09-18T14:28:33.367Z"},"comments":[],"__v":0}
+{"_id":{"$oid":"66eae3ea03fce4806843f891"},"content":"Learn Python","author":"Python","createdAt":{"$date":"2024-09-18T14:30:02.897Z"},"comments":[],"__v":0}
+{"_id":{"$oid":"66eb24dd69d0bb5561463f98"},"content":"Learn Spring Framework","author":"Spring Framework","createdAt":{"$date":"2024-09-18T19:07:09.88Z"},"comments":[],"__v":0}
+{"_id":{"$oid":"66eba2acede4b022127a67e0"},"content":"Learn Design Patterns","author":"Design Patterns","createdAt":{"$date":"2024-09-19T04:03:56.36Z"},"comments":[],"__v":0}
+{"_id":{"$oid":"66ebaa6fede4b022127a67e8"},"content":"Learn Maven","author":"Maven","createdAt":{"$date":"2024-09-19T04:37:03.712Z"},"comments":[],"__v":0}
+{"_id":{"$oid":"66ebac76ede4b022127a67f2"},"content":"Learn Apache Ant","author":"Apache Ant","createdAt":{"$date":"2024-09-19T04:45:42.715Z"},"comments":[],"__v":0}
+{"_id":{"$oid":"66ebb434ede4b022127a67fc"},"content":"Learn Apache Tomcat","author":"Apache Tomcat","createdAt":{"$date":"2024-09-19T05:18:44.684Z"},"comments":[],"__v":0}
+{"_id":{"$oid":"66edba5c95e746089acdb348"},"content":"Learn Angular","author":"Angular","createdAt":{"$date":"2024-09-20T18:09:32.368Z"},"comments":[],"__v":0}

@@ -1,0 +1,22 @@
+# Ignore Jekyll's generated site folder
+jekyll/_site/
+
+# Ignore Jekyll's internal cache files
+jekyll/.sass-cache/
+jekyll/.jekyll-cache/
+jekyll/.jekyll-metadata/
+
+# Ignore vendor folder (for Jekyll Ruby dependencies)
+jekyll/vendor/
+
+# Ignore other generated files or system files
+*.swp
+*.bak
+*.tmp
+
+# Ignore the contents of the _posts/ drafts folder as they may contain unpublished content
+# content/drafts/
+
+# Ignore IDE or editor-specific files
+.idea/
+.vscode/

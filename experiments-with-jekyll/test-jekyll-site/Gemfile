@@ -1,0 +1,13 @@
+source "https://rubygems.org"
+
+# Define the required Jekyll version
+gem "jekyll", "~> 4.2.2"
+
+# Add the 'webrick' gem which is required for serving the site
+
+# gem 'jekyll', '~> 4.2'
+# Minima theme for Jekyll
+gem "minima", "~> 2.5"
+gem "sassc"
+gem "jekyll-sass-converter"
+gem 'webrick'

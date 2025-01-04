@@ -1,0 +1,21 @@
+title: My Jekyll Site
+description: A simple Jekyll site running in Docker.
+baseurl: "" # Leave empty for root deployment
+url: ""     # Leave empty for localhost
+
+theme: minima
+plugins:
+  - jekyll-feed
+
+# Exclude unnecessary files
+exclude:
+  - docker-compose.yml
+  - Dockerfile
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+
+# Include custom assets
+sass:
+  sass_dir: content/assets
+  style: compressed
