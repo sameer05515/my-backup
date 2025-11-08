@@ -7,6 +7,7 @@ REM Navigate to project directory and ensure correct drive
 pushd "D:\GIT\unit-testing-playground\example-base-05\ShrimadBhagwatGeeta" >nul 2>&1
 if errorlevel 1 (
     echo Failed to change directory. Please check the path.
+    pause
     exit /b 1
 )
 

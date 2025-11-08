@@ -1,10 +1,15 @@
-@REM D:\GIT\unit-testing-playground\example-base-05\express-pdf-viewer
-
-
 @echo off
+REM Optimized script to start express-pdf-viewer
 
 title "express-pdf-viewer"
-set CURRENT_DIR=%cd%
-cd D:\GIT\unit-testing-playground\example-base-05\express-pdf-viewer
-D:
-npm run dev:v2
+
+pushd "D:\GIT\unit-testing-playground\example-base-05\express-pdf-viewer" >nul 2>&1
+if errorlevel 1 (
+    echo Failed to change directory. Please check the path.
+    pause
+    exit /b 1
+)
+
+call npm run dev:v2
+
+popd >nul

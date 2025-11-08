@@ -1,7 +1,15 @@
 @echo off
+REM Optimized script to start learn-to-add-arrows-between-divs
 
 title "learn-to-add-arrows-between-divs"
 
-cd D:\GIT\react-projects\learn-react\learn-to-add-arrows-between-divs
-d:
-npm start
+pushd "D:\GIT\react-projects\learn-react\learn-to-add-arrows-between-divs" >nul 2>&1
+if errorlevel 1 (
+    echo Failed to change directory. Please check the path.
+    pause
+    exit /b 1
+)
+
+call npm start
+
+popd >nul

@@ -1,8 +1,15 @@
 @echo off
+REM Optimized script to start react-ts-basics
 
-title "D:\GIT\react-projects\learn-react\react-ts-basics"
+title "react-ts-basics"
 
-cd D:\GIT\react-projects\learn-react\react-ts-basics
-d:
+pushd "D:\GIT\react-projects\learn-react\react-ts-basics" >nul 2>&1
+if errorlevel 1 (
+    echo Failed to change directory. Please check the path.
+    pause
+    exit /b 1
+)
 
-npm run dev
+call npm run dev
+
+popd >nul
