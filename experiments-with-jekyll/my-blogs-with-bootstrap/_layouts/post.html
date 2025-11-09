@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+<div class="container my-5">
+  <article class="row justify-content-center">
+    <div class="col-lg-8">
+      <header class="mb-4">
+        <h1 class="display-5 fw-bold mb-3">{{ page.title | escape }}</h1>
+        {% if page.date %}
+          <time datetime="{{ page.date | date_to_xmlschema }}" class="text-muted">
+            <i class="bi bi-calendar3"></i> {{ page.date | date: "%B %d, %Y" }}
+          </time>
+        {% endif %}
+      </header>
+
+      <div class="content">
+        {{ content }}
+      </div>
+
+      {% if page.tags.size > 0 %}
+        <div class="mt-5 pt-4 border-top">
+          <h3 class="h6 fw-bold mb-3">Tags:</h3>
+          <div class="d-flex flex-wrap gap-2">
+            {% for tag in page.tags %}
+              <span class="badge bg-primary">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </article>
+</div>
+

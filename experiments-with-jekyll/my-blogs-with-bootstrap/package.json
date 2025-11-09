@@ -1,0 +1,10 @@
+{
+  "name": "my-blogs-with-bootstrap",
+  "version": "1.0.0",
+  "description": "A modern Jekyll blog with Bootstrap 5",
+  "scripts": {
+    "build": "echo 'Bootstrap is loaded via CDN, no build step needed'"
+  },
+  "devDependencies": {}
+}
+
