@@ -1,1 +1,13 @@
 **/.idea
+**/.vscode
+**/.DS_Store
+**/node_modules
+**/vendor
+**/assets/bundle
+
+# Python
+**/*.pyc
+**/venv/
+**/.venv/
+venv/
+.venv/
