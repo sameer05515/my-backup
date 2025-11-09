@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Shopping Cart</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <h1>📚 Shopping Cart</h1>
+            <h2>Login</h2>
+            <form method="POST" action="/login">
+                <div th:if="${error}" class="error-message" th:text="${error}"></div>
+                
+                <label>Username:</label>
+                <input type="text" name="userName" id="userName" required autofocus>
+
+                <label>Password:</label>
+                <input type="password" name="password" id="password" required>
+
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+            <p class="login-footer">
+                <a href="/">← Back to Home</a>
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>
+

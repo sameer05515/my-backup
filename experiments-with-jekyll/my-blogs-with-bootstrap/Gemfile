@@ -1,0 +1,14 @@
+source "https://rubygems.org"
+
+# Jekyll version
+gem "jekyll", "~> 4.3"
+
+# Required gems
+gem "webrick"
+
+# Plugins
+gem "jekyll-feed"
+gem "jekyll-sitemap"
+gem "jekyll-seo-tag"
+gem "jekyll-paginate"
+

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <nav class="navbar" th:fragment="navbar(activePage)">
+        <div class="container">
+            <h1 class="logo">📚 Shopping Cart</h1>
+            <ul class="nav-menu">
+                <li><a href="/" th:classappend="${activePage == 'home'} ? 'active'">Home</a></li>
+                <li><a href="/books" th:classappend="${activePage == 'books'} ? 'active'">Books</a></li>
+                <li th:if="${session.userRole == 'ADMIN'}"><a href="/categories" th:classappend="${activePage == 'categories'} ? 'active'">Categories</a></li>
+                <li><a href="/orders" th:classappend="${activePage == 'orders'} ? 'active'">Orders</a></li>
+                <li th:if="${session.userName != null}">
+                    <span style="color: white; margin-right: 15px;" 
+                          th:text="'Welcome, ' + ${session.userName} + ' (' + ${session.userRole} + ')'"></span>
+                    <a href="/logout" class="btn-logout">Logout</a>
+                </li>
+                <li th:if="${session.userName == null}"><a href="/login">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+</body>
+</html>
+

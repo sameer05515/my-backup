@@ -1,0 +1,19 @@
+{
+  "name": "kafka-consumer-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/consumer.v2.js",
+  "scripts": {
+    "start": "node src/consumer.v2.js",
+    "start:v1": "node src/consumer.v1.js",
+    "start:v2": "node src/consumer.v2.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "kafkajs": "^2.2.4"
+  }
+}

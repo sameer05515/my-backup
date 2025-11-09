@@ -1,0 +1,20 @@
+services:
+  jekyll:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/srv/jekyll
+      - /srv/jekyll/_site
+      - /srv/jekyll/.jekyll-cache
+      - /srv/jekyll/node_modules
+    ports:
+      - "4000:4000"
+    environment:
+      - JEKYLL_ENV=development
+    command: >
+      sh -c "
+        npm run build:css &&
+        jekyll serve --host 0.0.0.0 --force_polling --livereload
+      "
+

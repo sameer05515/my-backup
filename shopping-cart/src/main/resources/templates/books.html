@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books - Shopping Cart</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body th:attr="data-user-role=${session.userRole}">
+    <div th:replace="~{fragments/navbar :: navbar('books')}"></div>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Book Management</h1>
+            <button th:if="${session.userRole == 'ADMIN'}" class="btn btn-primary" onclick="showBookForm()">Add New Book</button>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search books by title..." onkeyup="searchBooks()">
+            <select id="categoryFilter" onchange="filterByCategory()">
+                <option value="">All Categories</option>
+            </select>
+        </div>
+
+        <div id="bookForm" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" onclick="closeBookForm()">&times;</span>
+                <h2 id="formTitle">Add New Book</h2>
+                <form id="bookFormElement" onsubmit="saveBook(event)">
+                    <input type="hidden" id="bookId">
+                    
+                    <label>Category:</label>
+                    <select id="categoryId" required>
+                        <option value="">Select Category</option>
+                    </select>
+
+                    <label>Title:</label>
+                    <input type="text" id="title" required>
+
+                    <label>Author:</label>
+                    <input type="text" id="author" required>
+
+                    <label>Publisher:</label>
+                    <input type="text" id="publisher" required>
+
+                    <label>Edition:</label>
+                    <input type="text" id="edition" required>
+
+                    <label>Price:</label>
+                    <input type="number" id="price" step="0.01" required>
+
+                    <label>Quantity:</label>
+                    <input type="number" id="quantity" required>
+
+                    <label>Description:</label>
+                    <textarea id="description" rows="4" required></textarea>
+
+                    <div class="form-buttons">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-secondary" onclick="closeBookForm()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="booksContainer" class="books-grid">
+            <p>Loading books...</p>
+        </div>
+    </div>
+
+    <script th:src="@{/js/api.js}"></script>
+    <script th:src="@{/js/books.js}"></script>
+</body>
+</html>
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Home</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div th:replace="~{fragments/navbar :: navbar('home')}"></div>
+
+    <div class="container">
+        <div class="hero">
+            <h1>Welcome to Shopping Cart</h1>
+            <p>Your one-stop shop for books and reading materials</p>
+        </div>
+
+        <div class="dashboard">
+            <div class="dashboard-card">
+                <h2>📖 Books</h2>
+                <p id="bookCount">Loading...</p>
+                <a href="/books" class="btn btn-primary">Manage Books</a>
+            </div>
+            <div class="dashboard-card" th:if="${session.userRole == 'ADMIN'}">
+                <h2>🏷️ Categories</h2>
+                <p id="categoryCount">Loading...</p>
+                <a href="/categories" class="btn btn-primary">Manage Categories</a>
+            </div>
+            <div class="dashboard-card">
+                <h2>🛒 Orders</h2>
+                <p id="orderCount">Loading...</p>
+                <a href="/orders" class="btn btn-primary">View Orders</a>
+            </div>
+        </div>
+
+        <div class="quick-actions">
+            <h2>Quick Actions</h2>
+            <div class="action-buttons">
+                <a th:if="${session.userRole == 'ADMIN'}" href="/books" class="btn btn-success">Add New Book</a>
+                <a th:if="${session.userRole == 'ADMIN'}" href="/categories" class="btn btn-success">Add Category</a>
+                <a href="/orders" class="btn btn-success">Create Order</a>
+                <a href="/swagger-ui.html" class="btn btn-info" target="_blank">API Docs</a>
+            </div>
+        </div>
+    </div>
+
+    <script th:src="@{/js/api.js}"></script>
+    <script th:src="@{/js/index.js}"></script>
+</body>
+</html>
+

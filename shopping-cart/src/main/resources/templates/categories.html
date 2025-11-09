@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - Shopping Cart</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body th:attr="data-user-role=${session.userRole}">
+    <div th:replace="~{fragments/navbar :: navbar('categories')}"></div>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Category Management</h1>
+            <button th:if="${session.userRole == 'ADMIN'}" class="btn btn-primary" onclick="showCategoryForm()">Add New Category</button>
+        </div>
+
+        <div id="categoryForm" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close" onclick="closeCategoryForm()">&times;</span>
+                <h2 id="formTitle">Add New Category</h2>
+                <form id="categoryFormElement" onsubmit="saveCategory(event)">
+                    <input type="hidden" id="categoryId">
+                    
+                    <label>Category Name:</label>
+                    <input type="text" id="categoryName" required>
+
+                    <div class="form-buttons">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-secondary" onclick="closeCategoryForm()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="categoriesContainer" class="categories-grid">
+            <p>Loading categories...</p>
+        </div>
+    </div>
+
+    <script th:src="@{/js/api.js}"></script>
+    <script th:src="@{/js/categories.js}"></script>
+</body>
+</html>
+

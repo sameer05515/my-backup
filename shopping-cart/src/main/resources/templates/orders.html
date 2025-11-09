@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders - Shopping Cart</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div th:replace="~{fragments/navbar :: navbar('orders')}"></div>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Order Management</h1>
+            <button class="btn btn-primary" onclick="showOrderForm()">Create New Order</button>
+        </div>
+
+        <div id="orderForm" class="modal" style="display: none;">
+            <div class="modal-content modal-large">
+                <span class="close" onclick="closeOrderForm()">&times;</span>
+                <h2>Create New Order</h2>
+                <form id="orderFormElement" onsubmit="createOrder(event)">
+                    <label>User ID:</label>
+                    <input type="text" id="userId" value="admin" required>
+
+                    <div class="order-items">
+                        <h3>Order Items</h3>
+                        <div id="orderItemsContainer">
+                            <div class="order-item">
+                                <select class="book-select" required>
+                                    <option value="">Select Book</option>
+                                </select>
+                                <input type="number" class="quantity-input" placeholder="Quantity" min="1" required>
+                                <button type="button" class="btn btn-danger" onclick="removeOrderItem(this)">Remove</button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-secondary" onclick="addOrderItem()">Add Item</button>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="submit" class="btn btn-primary">Create Order</button>
+                        <button type="button" class="btn btn-secondary" onclick="closeOrderForm()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="ordersContainer">
+            <p>Loading orders...</p>
+        </div>
+    </div>
+
+    <script th:src="@{/js/api.js}"></script>
+    <script th:src="@{/js/orders.js}"></script>
+</body>
+</html>
+
