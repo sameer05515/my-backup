@@ -1,0 +1,59 @@
+# Site settings
+title: My Blogs
+email: your-email@example.com
+description: >-
+  A modern blog powered by Jekyll and Tailwind CSS
+baseurl: ""
+url: "https://example.com"
+
+# Author information
+author:
+  name: Your Name
+  email: your-email@example.com
+
+# Social links
+twitter_username: jekyllrb
+github_username: jekyll
+
+# Build settings
+# No theme - using custom layouts with Tailwind CSS
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+# Pagination
+paginate: 10
+paginate_path: "/page:num/"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - package.json
+  - package-lock.json
+  - .sass-cache/
+  - .jekyll-cache/
+  - vendor/
+  - .git/
+  - .gitignore
+  - README.md
+  - Dockerfile
+  - docker-compose.yml
+
+# Markdown settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+# Performance
+incremental: true
+
+# SEO
+lang: en-US
+timezone: UTC
+

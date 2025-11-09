@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en-US' }}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  {% seo %}
+  
+  <!-- Tailwind CSS styles -->
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  
+  {% feed_meta %}
+  {% if jekyll.environment == 'production' and site.google_analytics %}
+    {% include google-analytics.html %}
+  {% endif %}
+</head>
+<body class="min-h-screen flex flex-col">
+  <header class="bg-white shadow-sm border-b">
+    <nav class="container mx-auto px-4 py-4">
+      <div class="flex justify-between items-center">
+        <a href="{{ '/' | relative_url }}" class="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
+          {{ site.title | escape }}
+        </a>
+        <div class="flex space-x-6">
+          <a href="{{ '/' | relative_url }}" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
+          <a href="{{ '/about' | relative_url }}" class="text-gray-700 hover:text-blue-600 transition-colors">About</a>
+          <a href="{{ '/blog' | relative_url }}" class="text-gray-700 hover:text-blue-600 transition-colors">Blog</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="flex-grow container mx-auto px-4 py-8">
+    {{ content }}
+  </main>
+
+  <footer class="bg-gray-100 border-t mt-auto">
+    <div class="container mx-auto px-4 py-8">
+      <div class="text-center text-gray-600">
+        <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title | escape }}. All rights reserved.</p>
+        {% if site.github_username %}
+          <p class="mt-2">
+            <a href="https://github.com/{{ site.github_username }}" class="text-blue-600 hover:underline">
+              GitHub
+            </a>
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
