@@ -7,6 +7,30 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.navbar .navbar-brand {
+  color: var(--bs-body-color);
+  transition: color 0.2s ease;
+}
+
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
+  color: var(--bs-primary);
+}
+
+.navbar .nav-link {
+  color: var(--bs-body-color);
+  transition: color 0.2s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  color: var(--bs-primary);
+}
+
+.navbar .nav-link.active {
+  color: var(--bs-primary);
+}
+
 /* Dark mode support */
 [data-bs-theme="dark"] {
   color-scheme: dark;
@@ -15,25 +39,6 @@ body {
 [data-bs-theme="dark"] body {
   background-color: #212529;
   color: #fff;
-}
-
-[data-bs-theme="dark"] .navbar {
-  background-color: #212529 !important;
-  border-color: #495057 !important;
-}
-
-[data-bs-theme="dark"] .navbar .navbar-brand,
-[data-bs-theme="dark"] .navbar .nav-link {
-  color: #f8f9fa;
-}
-
-[data-bs-theme="dark"] .navbar .nav-link:hover,
-[data-bs-theme="dark"] .navbar .nav-link:focus {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-[data-bs-theme="dark"] .navbar .nav-link.active {
-  color: #0d6efd;
 }
 
 [data-bs-theme="dark"] .card {
@@ -143,20 +148,20 @@ body {
 }
 
 .blog-link {
-  color: #212529;
+  color: var(--bs-body-color);
   border: 1px solid transparent;
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .blog-link:hover {
-  background-color: rgba(13, 110, 253, 0.08);
-  border-color: rgba(13, 110, 253, 0.35);
+  background-color: rgba(var(--bs-primary-rgb), 0.08);
+  border-color: rgba(var(--bs-primary-rgb), 0.35);
 }
 
 .blog-link.active {
-  background-color: #0d6efd;
+  background-color: var(--bs-primary);
   color: #fff;
-  border-color: #0d6efd;
+  border-color: var(--bs-primary);
 }
 
 .blog-link.active .text-muted {
@@ -184,28 +189,13 @@ body {
   .sidebar {
     margin-bottom: 1.5rem;
     border-right: none !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid var(--bs-border-color);
   }
 }
 
-[data-bs-theme="dark"] .sidebar {
-  background-color: #212529;
-  border-color: #495057 !important;
-}
-
-[data-bs-theme="dark"] .blog-link {
-  color: #f8f9fa;
-}
-
 [data-bs-theme="dark"] .blog-link:hover {
-  background-color: rgba(13, 110, 253, 0.2);
-  border-color: rgba(13, 110, 253, 0.45);
-}
-
-[data-bs-theme="dark"] .blog-link.active {
-  background-color: #0d6efd;
-  border-color: #0d6efd;
-  color: #fff;
+  background-color: rgba(var(--bs-primary-rgb), 0.18);
+  border-color: rgba(var(--bs-primary-rgb), 0.45);
 }
 
 /* Theme toggle button */
