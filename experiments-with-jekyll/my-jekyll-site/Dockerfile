@@ -5,12 +5,12 @@ FROM jekyll/jekyll:latest
 WORKDIR /srv/jekyll
 
 # Copy Gemfile and install dependencies
-COPY jekyll/Gemfile ./Gemfile
+COPY Gemfile ./
 # COPY jekyll/Gemfile.lock ./Gemfile.lock
 RUN bundle install
 
 # Copy Jekyll site files
-COPY jekyll/ ./jekyll/
+# COPY jekyll/ ./jekyll/
 
 # Expose Jekyll server port
 EXPOSE 4000

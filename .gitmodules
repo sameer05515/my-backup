@@ -1,0 +1,3 @@
+[submodule "experiments-with-jekyll/my-jekyll-site/assets/lib"]
+	path = experiments-with-jekyll/my-jekyll-site/assets/lib
+	url = https://github.com/cotes2020/chirpy-static-assets.git

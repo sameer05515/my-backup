@@ -1,10 +1,15 @@
 @echo off
+REM Optimized script to start next-ts-basics
 
-title "D:\GIT\react-projects\learn-react\react-ts-basics"
+title "next-ts-basics"
 
-cd D:\GIT\react-projects\learn-react-and-next-ts\next-ts-basics
-d:
+pushd "D:\GIT\react-projects\learn-react-and-next-ts\next-ts-basics" >nul 2>&1
+if errorlevel 1 (
+    echo Failed to change directory. Please check the path.
+    pause
+    exit /b 1
+)
 
-@REM npm run dev -- -p 5174
+call npm run dev
 
-npm run dev
+popd >nul

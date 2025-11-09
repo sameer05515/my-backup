@@ -1,22 +1,40 @@
 # Ignore Jekyll's generated site folder
-jekyll/_site/
+_site/
+_site/**
 
 # Ignore Jekyll's internal cache files
-jekyll/.sass-cache/
-jekyll/.jekyll-cache/
-jekyll/.jekyll-metadata/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata/
 
 # Ignore vendor folder (for Jekyll Ruby dependencies)
-jekyll/vendor/
+vendor/
+vendor/**
 
-# Ignore other generated files or system files
-*.swp
-*.bak
+# Ignore log files and temporary system files
+*.log
 *.tmp
+*.bak
+*.swp
 
-# Ignore the contents of the _posts/ drafts folder as they may contain unpublished content
+# Ignore the contents of the drafts folder (uncomment if drafts are used)
+# _drafts/
 # content/drafts/
 
 # Ignore IDE or editor-specific files
 .idea/
 .vscode/
+*.iml
+
+# Ignore dependency files from package managers
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Ignore Docker-related files (if applicable)
+docker-compose.override.yml
+docker-compose.override.yaml
+
+# Ignore operating system-specific files
+.DS_Store
+Thumbs.db

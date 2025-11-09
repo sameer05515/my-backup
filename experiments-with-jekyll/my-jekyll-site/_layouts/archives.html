@@ -1,0 +1,11 @@
+---
+layout: default
+---
+
+<h1>Archives</h1>
+<ul>
+  {% assign years = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
+  {% for year in years %}
+    <li><a href="{{ year.name | prepend: '/archives/' }}">{{ year.name }}</a></li>
+  {% endfor %}
+</ul>
