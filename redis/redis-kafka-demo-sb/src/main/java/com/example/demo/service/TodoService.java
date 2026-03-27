@@ -20,7 +20,8 @@ public class TodoService {
         this.todoRepository = todoRepository;
     }
 
-    public List<Todo> getAllTodos() {
+    public List<Todo> getAllTodos() throws InterruptedException {
+        Thread.sleep(4000);
         return todoRepository.findAll();
     }
 

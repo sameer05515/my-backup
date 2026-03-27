@@ -21,8 +21,14 @@ public class TodoController {
     }
 
     @GetMapping
-    public List<Todo> getAllTodos() {
-        return todoService.getAllTodos();
+    public ResponseEntity<List<Todo>> getAllTodos() {
+        try {
+            List<Todo> todos = todoService.getAllTodos();
+            return ResponseEntity.ok(todos);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 
     @GetMapping("/{id}")
