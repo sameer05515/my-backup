@@ -5,6 +5,9 @@ spring:
     data:
       host: localhost
       port: 6379
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/redis_kafka_demo
 
 server:
   port: 8089
