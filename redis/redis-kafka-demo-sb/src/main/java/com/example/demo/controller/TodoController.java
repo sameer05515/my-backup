@@ -20,11 +20,28 @@ public class TodoController {
         this.todoService = todoService;
     }
 
+    @Autowired
+    private com.example.demo.service.RedisService redisService;
+
+    private static final String TODOS_CACHE_KEY = "cached_todos_list";
+
     @GetMapping
     public ResponseEntity<List<Todo>> getAllTodos() {
         try {
+            // Try to get the todo list from cache
+            List<Todo> cachedTodos = redisService.getList(TODOS_CACHE_KEY, Todo.class);
+            if (cachedTodos != null && !cachedTodos.isEmpty()) {
+                return ResponseEntity.ok(cachedTodos);
+            }
+
+            // If not in cache, fetch from service and cache the result
             List<Todo> todos = todoService.getAllTodos();
+            if (todos != null && !todos.isEmpty()) {
+                // Cache for 60 seconds
+                redisService.setList(TODOS_CACHE_KEY, todos, 180L);
+            }
             return ResponseEntity.ok(todos);
+
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
