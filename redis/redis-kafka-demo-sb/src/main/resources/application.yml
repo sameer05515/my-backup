@@ -1,6 +1,9 @@
 spring:
   application:
    name: demo
+  mongodb:
+    uri: mongodb://localhost:27017/redis_kafka_demo
+    database: redis_kafka_demo
   redis:
     data:
       host: localhost
@@ -8,6 +11,7 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost:27017/redis_kafka_demo
+      database: redis_kafka_demo
 
 server:
   port: 8089
