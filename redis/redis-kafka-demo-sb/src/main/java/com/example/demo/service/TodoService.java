@@ -15,9 +15,12 @@ import java.util.List;
 public class TodoService {
 
     private final TodoRepository todoRepository;
+    private final RedisService redisService;
+    private static final String TODOS_CACHE_KEY = "cached_todos_list";
 
-    public TodoService(TodoRepository todoRepository) {
+    public TodoService(TodoRepository todoRepository, RedisService redisService) {
         this.todoRepository = todoRepository;
+        this.redisService = redisService;
     }
 
     public List<Todo> getAllTodos() throws InterruptedException {
@@ -40,7 +43,13 @@ public class TodoService {
         todo.setCompleted(Boolean.TRUE.equals(request.getCompleted()));
         todo.setCreatedAt(Instant.now());
         todo.setUpdatedAt(Instant.now());
-        return todoRepository.save(todo);
+
+        Todo savedTodo = todoRepository.save(todo);
+
+        // Invalidate the cached todos list after creation
+        redisService.delete(TODOS_CACHE_KEY);
+
+        return savedTodo;
     }
 
     public Todo updateTodo(String id, TodoUpdateRequest request) {
@@ -59,7 +68,12 @@ public class TodoService {
         }
 
         todo.setUpdatedAt(Instant.now());
-        return todoRepository.save(todo);
+        Todo updatedTodo = todoRepository.save(todo);
+
+        // Invalidate the cached todos list after update
+        redisService.delete(TODOS_CACHE_KEY);
+
+        return updatedTodo;
     }
 
     public void deleteTodo(String id) {
@@ -67,5 +81,8 @@ public class TodoService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Todo not found");
         }
         todoRepository.deleteById(id);
+
+        // Invalidate the cached todos list after deletion
+        redisService.delete(TODOS_CACHE_KEY);
     }
 }

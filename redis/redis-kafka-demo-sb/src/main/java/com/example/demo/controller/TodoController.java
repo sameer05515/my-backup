@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.dto.TodoCreateRequest;
 import com.example.demo.dto.TodoUpdateRequest;
 import com.example.demo.model.Todo;
+import com.example.demo.service.RedisService;
 import com.example.demo.service.TodoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,13 +16,12 @@ import java.util.List;
 public class TodoController {
 
     private final TodoService todoService;
+    private final RedisService redisService;
 
-    public TodoController(TodoService todoService) {
+    public TodoController(TodoService todoService, RedisService redisService) {
         this.todoService = todoService;
+        this.redisService = redisService;
     }
-
-    @Autowired
-    private com.example.demo.service.RedisService redisService;
 
     private static final String TODOS_CACHE_KEY = "cached_todos_list";
 
