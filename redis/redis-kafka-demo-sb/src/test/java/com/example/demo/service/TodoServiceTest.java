@@ -23,18 +23,22 @@ class TodoServiceTest {
     private TodoRepository todoRepository;
 
     @Mock
-    private RedisService redisService;
+    private TodoEventPublisher todoEventPublisher;
 
     @InjectMocks
     private TodoService todoService;
 
     @Test
-    void createTodoShouldTrimTitleAndInvalidateCache() {
+    void createTodoShouldTrimTitleAndPublishEvent() {
         TodoCreateRequest request = new TodoCreateRequest();
         request.setTitle("  Learn Redis  ");
         request.setCompleted(true);
 
-        when(todoRepository.save(any(Todo.class))).thenAnswer(invocation -> invocation.getArgument(0));
+        when(todoRepository.save(any(Todo.class))).thenAnswer(invocation -> {
+            Todo todo = invocation.getArgument(0);
+            todo.setId("created-1");
+            return todo;
+        });
 
         Todo saved = todoService.createTodo(request);
 
@@ -42,7 +46,7 @@ class TodoServiceTest {
         assertTrue(saved.isCompleted());
         assertNotNull(saved.getCreatedAt());
         assertNotNull(saved.getUpdatedAt());
-        verify(redisService).delete("cached_todos_list");
+        verify(todoEventPublisher).publish("CREATE", "created-1");
     }
 
     @Test
@@ -54,11 +58,11 @@ class TodoServiceTest {
         assertEquals("400 BAD_REQUEST \"Title is required\"", ex.getMessage());
 
         verify(todoRepository, never()).save(any(Todo.class));
-        verify(redisService, never()).delete(anyString());
+        verify(todoEventPublisher, never()).publish(anyString(), anyString());
     }
 
     @Test
-    void updateTodoShouldUpdateFieldsAndInvalidateCache() {
+    void updateTodoShouldUpdateFieldsAndPublishEvent() {
         Todo existing = new Todo();
         existing.setId("id-1");
         existing.setTitle("Old");
@@ -76,7 +80,7 @@ class TodoServiceTest {
         assertEquals("New", updated.getTitle());
         assertTrue(updated.isCompleted());
         assertNotNull(updated.getUpdatedAt());
-        verify(redisService).delete("cached_todos_list");
+        verify(todoEventPublisher).publish("UPDATE", "id-1");
     }
 
     @Test
@@ -87,16 +91,16 @@ class TodoServiceTest {
         assertEquals("404 NOT_FOUND \"Todo not found\"", ex.getMessage());
 
         verify(todoRepository, never()).deleteById(anyString());
-        verify(redisService, never()).delete(anyString());
+        verify(todoEventPublisher, never()).publish(anyString(), anyString());
     }
 
     @Test
-    void deleteTodoShouldDeleteAndInvalidateCache() {
+    void deleteTodoShouldDeleteAndPublishEvent() {
         when(todoRepository.existsById("id-2")).thenReturn(true);
 
         todoService.deleteTodo("id-2");
 
         verify(todoRepository).deleteById("id-2");
-        verify(redisService).delete("cached_todos_list");
+        verify(todoEventPublisher).publish("DELETE", "id-2");
     }
 }
