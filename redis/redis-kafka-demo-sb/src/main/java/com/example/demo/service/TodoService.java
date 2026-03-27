@@ -23,8 +23,7 @@ public class TodoService {
         this.redisService = redisService;
     }
 
-    public List<Todo> getAllTodos() throws InterruptedException {
-        Thread.sleep(4000);
+    public List<Todo> getAllTodos() {
         return todoRepository.findAll();
     }
 

@@ -24,28 +24,20 @@ public class TodoController {
     }
 
     private static final String TODOS_CACHE_KEY = "cached_todos_list";
+    private static final Long TODOS_CACHE_TTL_SECONDS = 180L;
 
     @GetMapping
     public ResponseEntity<List<Todo>> getAllTodos() {
-        try {
-            // Try to get the todo list from cache
-            List<Todo> cachedTodos = redisService.getList(TODOS_CACHE_KEY, Todo.class);
-            if (cachedTodos != null && !cachedTodos.isEmpty()) {
-                return ResponseEntity.ok(cachedTodos);
-            }
-
-            // If not in cache, fetch from service and cache the result
-            List<Todo> todos = todoService.getAllTodos();
-            if (todos != null && !todos.isEmpty()) {
-                // Cache for 60 seconds
-                redisService.setList(TODOS_CACHE_KEY, todos, 180L);
-            }
-            return ResponseEntity.ok(todos);
-
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        List<Todo> cachedTodos = redisService.getList(TODOS_CACHE_KEY, Todo.class);
+        if (cachedTodos != null && !cachedTodos.isEmpty()) {
+            return ResponseEntity.ok(cachedTodos);
         }
+
+        List<Todo> todos = todoService.getAllTodos();
+        if (todos != null && !todos.isEmpty()) {
+            redisService.setList(TODOS_CACHE_KEY, todos, TODOS_CACHE_TTL_SECONDS);
+        }
+        return ResponseEntity.ok(todos);
     }
 
     @GetMapping("/{id}")

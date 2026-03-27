@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import tools.jackson.databind.JavaType;
@@ -14,30 +14,34 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class RedisService {
 
-    @Autowired
-    private RedisTemplate<String, String> redisTemplate;
+    private final RedisTemplate<String, String> redisTemplate;
+    private final ObjectMapper objectMapper;
+
+    public RedisService(RedisTemplate<String, String> redisTemplate, ObjectMapper objectMapper) {
+        this.redisTemplate = redisTemplate;
+        this.objectMapper = objectMapper;
+    }
 
     public <T> T get(String key, Class<T> entityClass) {
         try {
-            String value = redisTemplate.opsForValue().get(key);
+            ValueOperations<String, String> ops = redisTemplate.opsForValue();
+            String value = ops.get(key);
             if (value == null) {
                 return null;
             }
-            ObjectMapper mapper = new ObjectMapper();
-            return mapper.readValue(value, entityClass);
+            return objectMapper.readValue(value, entityClass);
         } catch (Exception e) {
-            log.error("Exception ", e);
+            log.error("Redis get failed for key={}", key, e);
             return null;
         }
     }
 
     public void set(String key, Object o, Long ttl) {
         try {
-            ObjectMapper objectMapper = new ObjectMapper();
             String jsonValue = objectMapper.writeValueAsString(o);
             redisTemplate.opsForValue().set(key, jsonValue, ttl, TimeUnit.SECONDS);
         } catch (Exception e) {
-            log.error("Exception ", e);
+            log.error("Redis set failed for key={}", key, e);
         }
     }
 
@@ -47,11 +51,10 @@ public class RedisService {
             if (value == null) {
                 return null;
             }
-            ObjectMapper mapper = new ObjectMapper();
-            JavaType listType = mapper.getTypeFactory().constructCollectionType(List.class, elementClass);
-            return mapper.readValue(value, listType);
+            JavaType listType = objectMapper.getTypeFactory().constructCollectionType(List.class, elementClass);
+            return objectMapper.readValue(value, listType);
         } catch (Exception e) {
-            log.error("Exception ", e);
+            log.error("Redis getList failed for key={}", key, e);
             return null;
         }
     }
@@ -64,7 +67,7 @@ public class RedisService {
         try {
             redisTemplate.delete(key);
         } catch (Exception e) {
-            log.error("Exception ", e);
+            log.error("Redis delete failed for key={}", key, e);
         }
     }
 
