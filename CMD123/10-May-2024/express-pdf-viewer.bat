@@ -10,6 +10,7 @@ if errorlevel 1 (
     exit /b 1
 )
 
+call npm i
 call npm run dev:v2
 
 popd >nul
