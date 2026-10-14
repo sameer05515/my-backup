@@ -1,5 +1,5 @@
 @echo off
-REM Optimized script to start express-pdf-viewer
+REM Optimized script to start memomark-v1
 
 title "memomark-v1"
 
